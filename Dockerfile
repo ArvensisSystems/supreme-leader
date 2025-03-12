@@ -14,7 +14,6 @@ RUN cd /temp/prod && pnpm install --frozen-lockfile --production
 # copy production dependencies and source code into final image
 FROM base AS release
 COPY --from=install /temp/prod/node_modules node_modules
-COPY --from=install /temp/prod/.pnpm-store .pnpm-store
 COPY . .
 
 # run the app
