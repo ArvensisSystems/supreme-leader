@@ -1,5 +1,3 @@
-# use the official Bun image
-# see all versions at https://hub.docker.com/r/oven/bun/tags
 FROM node AS base
 WORKDIR /usr/src/app
 
@@ -17,5 +15,5 @@ COPY --from=install /temp/prod/.pnpm-store .pnpm-store
 COPY . .
 
 # run the app
-USER bun
-ENTRYPOINT [ "bun", "start" ]
+USER bot
+ENTRYPOINT [ "pnpm", "start" ]
