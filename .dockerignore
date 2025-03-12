@@ -179,3 +179,4 @@ dist
 .devcontainer
 .github
 .env.example
+.pnpm-store
