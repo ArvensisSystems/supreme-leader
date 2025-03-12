@@ -1,5 +1,8 @@
-FROM node AS base
-WORKDIR /usr/src/app
+FROM node:20-slim AS base
+ENV PNPM_HOME="/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
+RUN corepack enable
+WORKDIR /app
 
 # install dependencies into temp directory
 # this will cache them and speed up future builds
