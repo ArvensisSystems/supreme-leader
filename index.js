@@ -16,8 +16,10 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
 import OpenAI from "openai";
-import prompt from "./prompt";
+import prompt from "./prompt.js";
 import { Client, Events, GatewayIntentBits } from "discord.js";
+import { configDotenv } from "dotenv";
+configDotenv();
 
 const openai = new OpenAI({
   baseURL: "https://openrouter.ai/api/v1",
@@ -28,7 +30,7 @@ const openai = new OpenAI({
   },
 });
 
-async function check(message: string): Promise<boolean> {
+async function check(message) {
   const completion = await openai.chat.completions.create({
     model: "google/gemma-2-27b-it",
     messages: [
