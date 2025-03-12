@@ -17,5 +17,4 @@ COPY --from=install /temp/prod/node_modules node_modules
 COPY . .
 
 # run the app
-USER bot
 ENTRYPOINT [ "pnpm", "start" ]
